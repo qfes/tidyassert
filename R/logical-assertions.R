@@ -15,8 +15,8 @@ assert_equal <- function(a, b,
                          error_class = NULL) {
   assert_(
     a == b,
-    get_qexpr(!!substitute(a == b)),
-    fmt_message(error_message, a = substitute(a), b = substitute(b)),
+    quo_expr(substitute(a == b)),
+    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
     error_class
   )
 }
@@ -34,8 +34,8 @@ assert_not_equal <- function(a, b,
                              error_class = NULL) {
   assert_(
     a != b,
-    get_qexpr(!!substitute(a != b)),
-    fmt_message(error_message, a = substitute(a), b = substitute(b)),
+    quo_expr(substitute(a != b)),
+    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
     error_class
   )
 }
@@ -53,8 +53,8 @@ assert_less <- function(a, b,
                         error_class = NULL) {
   assert_(
     a < b,
-    get_qexpr(!!substitute(a < b)),
-    fmt_message(error_message, a = substitute(a), b = substitute(b)),
+    quo_expr(substitute(a < b)),
+    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
     error_class
   )
 }
@@ -72,8 +72,8 @@ assert_less_equal <- function(a, b,
                               error_class = NULL) {
   assert_(
     a <= b,
-    get_qexpr(!!substitute(a <= b)),
-    fmt_message(error_message, a = substitute(a), b = substitute(b)),
+    quo_expr(substitute(a <= b)),
+    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
     error_class
   )
 }
@@ -91,8 +91,8 @@ assert_greater <- function(a, b,
                            error_class = NULL) {
   assert_(
     a > b,
-    get_qexpr(!!substitute(a > b)),
-    fmt_message(error_message, a = substitute(a), b = substitute(b)),
+    quo_expr(substitute(a > b)),
+    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
     error_class
   )
 }
@@ -110,8 +110,8 @@ assert_greater_equal <- function(a, b,
                                  error_class = NULL) {
   assert_(
     a >= b,
-    get_qexpr(!!substitute(a >= b)),
-    fmt_message(error_message, a = substitute(a), b = substitute(b)),
+    quo_expr(substitute(a >= b)),
+    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
     error_class
   )
 }
@@ -131,17 +131,17 @@ assert_greater_equal <- function(a, b,
 #' @family assertions
 #' @export
 assert_range <- function(obj, min, max,
-                         error_message = "{obj} must be within [{min}, {max}]",
+                         error_message = "{obj} must be within [{!!min}, {!!max}]",
                          error_class = NULL) {
   assert_less(min, max)
   assert_(
     obj >= min & obj <= max,
-    get_qexpr(!!substitute(obj >= min & obj <= max)),
+    quo_expr(substitute(obj >= min & obj <= max)),
     fmt_message(
       error_message,
-      obj = substitute(obj),
-      min = substitute(min),
-      max = substitute(max)
+      obj = quo_expr(substitute(obj)),
+      min = quo_expr(substitute(min)),
+      max = quo_expr(substitute(max))
     ),
     error_class
   )

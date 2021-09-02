@@ -17,7 +17,7 @@ assert_type <- function(obj, type,
 
   assert_(
     typeof(obj) == type,
-    get_qexpr(!!substitute(typeof(obj) == type)),
+    quo_expr(substitute(typeof(obj) == type)),
     fmt_message(error_message, obj = substitute(obj), type = fmt_type()),
     error_class
   )
@@ -45,8 +45,8 @@ assert_inherits <- function(obj, class,
 
   assert_(
     inherits(obj, class),
-    get_qexpr(!!substitute(inherits(obj, class))),
-    fmt_message(error_message, obj = substitute(obj), class = fmt_class()),
+    quo_expr(substitute(inherits(obj, class))),
+    fmt_message(error_message, obj = quo_expr(substitute(obj)), class = fmt_class()),
     error_class
   )
 }

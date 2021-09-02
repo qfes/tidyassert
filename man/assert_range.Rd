@@ -8,7 +8,7 @@ assert_range(
   obj,
   min,
   max,
-  error_message = "{obj} must be within [{min}, {max}]",
+  error_message = "{obj} must be within [{!!min}, {!!max}]",
   error_class = NULL
 )
 }
