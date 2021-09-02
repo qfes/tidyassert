@@ -22,8 +22,10 @@ Raises an assertion error when \code{!all(a == b)}.
 Other assertions: 
 \code{\link{assert_greater_equal}()},
 \code{\link{assert_greater}()},
+\code{\link{assert_inherits}()},
 \code{\link{assert_less_equal}()},
 \code{\link{assert_less}()},
-\code{\link{assert_not_equal}()}
+\code{\link{assert_not_equal}()},
+\code{\link{assert_type}()}
 }
 \concept{assertions}
