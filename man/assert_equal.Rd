@@ -26,6 +26,7 @@ Other assertions:
 \code{\link{assert_less_equal}()},
 \code{\link{assert_less}()},
 \code{\link{assert_not_equal}()},
+\code{\link{assert_range}()},
 \code{\link{assert_type}()}
 }
 \concept{assertions}
