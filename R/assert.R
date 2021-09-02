@@ -21,6 +21,7 @@ assert_ <- function(expr, qexpr, error_message = NULL, error_class = NULL) {
       message = fmt_bullets(error_message),
       class = c(error_class, "assert_error"),
       expr = qexpr,
+      call = sys.call(-1L),
       # exclude this function from the trace
       trace = rlang::trace_back(bottom = sys.frame(-1L))
     )
