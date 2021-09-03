@@ -29,6 +29,6 @@ Other assertions:
 \code{\link{assert_not_na}()},
 \code{\link{assert_not_null}()},
 \code{\link{assert_range}()},
-\code{\link{assert_type}()}
+\code{\link{assert_typeof}()}
 }
 \concept{assertions}

@@ -1,7 +1,7 @@
-#' Assert type
+#' Assert typeof
 #'
 #' Raises an assertion error when `typeof(obj) != type`.
-#' @name assert_type
+#' @name assert_typeof
 #' @param obj <`any`> any value
 #' @param type <`string`> the expected type
 #' @param error_message <`string`> the error message.
@@ -10,9 +10,9 @@
 #'
 #' @family assertions
 #' @export
-assert_type <- function(obj, type,
-                        error_message = c(x = "{obj} must be type {!!type}"),
-                        error_class = NULL) {
+assert_typeof <- function(obj, type,
+                          error_message = c(x = "{obj} must be of type {!!type}"),
+                          error_class = NULL) {
   fmt_type <- function() I(paste0("<", type, ">"))
 
   assert_(
