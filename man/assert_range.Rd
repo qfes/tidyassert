@@ -13,7 +13,7 @@ assert_range(
 )
 }
 \arguments{
-\item{obj}{<\code{any}>}
+\item{obj}{<\code{any}> any object}
 
 \item{min}{<\code{any}> the minimum value}
 
@@ -35,6 +35,8 @@ Other assertions:
 \code{\link{assert_less_equal}()},
 \code{\link{assert_less}()},
 \code{\link{assert_not_equal}()},
+\code{\link{assert_not_na}()},
+\code{\link{assert_not_null}()},
 \code{\link{assert_type}()}
 }
 \concept{assertions}

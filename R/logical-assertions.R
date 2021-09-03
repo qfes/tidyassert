@@ -121,7 +121,7 @@ assert_greater_equal <- function(a, b,
 #' Raises an assertion error when `!all(a >= min & a <= max)`
 #' @name assert_range
 #' @inherit assert_equal
-#' @param obj <`any`>
+#' @param obj <`any`> any object
 #' @param min <`any`> the minimum value
 #' @param max <`any`> the maximum value
 #' @param error_message <`string`> the error message.

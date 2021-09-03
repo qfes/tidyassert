@@ -15,13 +15,13 @@ assert <- function(expr, error_message = NULL, error_class = NULL) {
   assert_(expr, quo_expr(substitute(expr)), error_message, error_class)
 }
 
-assert_ <- function(expr, qexpr, error_message = NULL, error_class = NULL) {
+assert_ <- function(expr, qexpr, error_message = NULL, error_class = NULL, call = sys.call(-2L)) {
   if (!all(expr) || length(expr) == 0) {
     rlang::abort(
       message = fmt_bullets(error_message),
       class = c(error_class, "assert_error"),
       expr = qexpr,
-      call = sys.call(-2L),
+      call = call,
       # exclude this function from the trace
       trace = rlang::trace_back(bottom = sys.frame(-1L))
     )
