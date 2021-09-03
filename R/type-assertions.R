@@ -18,7 +18,7 @@ assert_typeof <- function(obj, type,
   assert_(
     typeof(obj) == type,
     quo_expr(substitute(typeof(obj) == type)),
-    fmt_message(error_message, obj = substitute(obj), type = fmt_type()),
+    fmt_message(error_message, obj = quo_expr(substitute(obj)), type = fmt_type()),
     error_class
   )
 }
