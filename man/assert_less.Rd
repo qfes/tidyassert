@@ -29,6 +29,7 @@ Other assertions:
 \code{\link{assert_greater_equal}()},
 \code{\link{assert_greater}()},
 \code{\link{assert_inherits}()},
+\code{\link{assert_is_string}()},
 \code{\link{assert_less_equal}()},
 \code{\link{assert_not_equal}()},
 \code{\link{assert_not_na}()},
