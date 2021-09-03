@@ -26,7 +26,7 @@ fmt_value <- function(value) {
     return(rlang::as_string(value))
   }
 
-  if (rlang::is_quosure(value) && rlang::quo_is_symbol(value) || rlang::is_symbol(value)) {
+  if (rlang::is_quosure(value) && rlang::quo_is_symbol(value)) {
     return(paste0("`", rlang::as_label(value), "`"))
   }
 

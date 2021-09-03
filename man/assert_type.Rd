@@ -7,7 +7,7 @@
 assert_type(
   obj,
   type,
-  error_message = c(x = "{obj} must be type {type}"),
+  error_message = c(x = "{obj} must be type {!!type}"),
   error_class = NULL
 )
 }

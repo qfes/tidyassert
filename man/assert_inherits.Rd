@@ -7,7 +7,7 @@
 assert_inherits(
   obj,
   class,
-  error_message = c(x = "{obj} must inherit {class}"),
+  error_message = c(x = "{obj} must inherit {!!class}"),
   error_class = NULL
 )
 }
