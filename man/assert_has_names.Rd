@@ -21,7 +21,7 @@ unevaluated expressions for \code{obj} and \code{names}.}
 \item{error_class}{<\code{character}> the class name/s for the error.}
 }
 \description{
-Raises an assertion error when \code{!all(rlang::has_name(obj, names))}.
+Raises an assertion error when \code{!rlang::has_name(obj, names)}.
 }
 \seealso{
 Other attribute-assertions: 

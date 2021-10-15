@@ -14,7 +14,7 @@ assert_is_string <- function(obj,
                              error_class = NULL) {
   assert_(
     rlang::is_string(obj),
-    quo_expr(rlang::is_string(obj)),
+    quo_expr(substitute(rlang::is_string(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -33,7 +33,7 @@ assert_is_bool <- function(obj,
                            error_class = NULL) {
   assert_(
     rlang::is_bool(obj),
-    quo_expr(rlang::is_bool(obj)),
+    quo_expr(substitute(rlang::is_bool(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -52,7 +52,7 @@ assert_is_scalar_integer <- function(obj,
                                      error_class = NULL) {
   assert_(
     rlang::is_scalar_integer(obj),
-    quo_expr(rlang::is_scalar_integer(obj)),
+    quo_expr(substitute(rlang::is_scalar_integer(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -71,7 +71,7 @@ assert_is_scalar_integerish <- function(obj,
                                         error_class = NULL) {
   assert_(
     rlang::is_scalar_integerish(obj),
-    quo_expr(rlang::is_scalar_integerish(obj)),
+    quo_expr(substitute(rlang::is_scalar_integerish(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -90,7 +90,7 @@ assert_is_scalar_double <- function(obj,
                                     error_class = NULL) {
   assert_(
     rlang::is_scalar_double(obj),
-    quo_expr(rlang::is_scalar_double(obj)),
+    quo_expr(substitute(rlang::is_scalar_double(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -109,7 +109,7 @@ assert_is_scalar_character <- function(obj,
                                        error_class = NULL) {
   assert_(
     rlang::is_scalar_character(obj),
-    quo_expr(rlang::is_scalar_character(obj)),
+    quo_expr(substitute(rlang::is_scalar_character(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -128,7 +128,7 @@ assert_is_scalar_logical <- function(obj,
                                      error_class = NULL) {
   assert_(
     rlang::is_scalar_logical(obj),
-    quo_expr(rlang::is_scalar_logical(obj)),
+    quo_expr(substitute(rlang::is_scalar_logical(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -147,7 +147,7 @@ assert_is_scalar_raw <- function(obj,
                                  error_class = NULL) {
   assert_(
     rlang::is_scalar_raw(obj),
-    quo_expr(rlang::is_scalar_raw(obj)),
+    quo_expr(substitute(rlang::is_scalar_raw(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )

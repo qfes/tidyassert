@@ -74,7 +74,7 @@ assert_is_integer <- function(obj,
                               error_class = NULL) {
   assert_(
     rlang::is_integer(obj),
-    quo_expr(rlang::is_integer(obj)),
+    quo_expr(substitute(rlang::is_integer(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -93,7 +93,7 @@ assert_is_integerish <- function(obj,
                                  error_class = NULL) {
   assert_(
     rlang::is_integerish(obj),
-    quo_expr(rlang::is_integerish(obj)),
+    quo_expr(substitute(rlang::is_integerish(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -112,7 +112,7 @@ assert_is_double <- function(obj,
                              error_class = NULL) {
   assert_(
     rlang::is_double(obj),
-    quo_expr(rlang::is_double(obj)),
+    quo_expr(substitute(rlang::is_double(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -131,7 +131,7 @@ assert_is_character <- function(obj,
                                 error_class = NULL) {
   assert_(
     rlang::is_character(obj),
-    quo_expr(rlang::is_character(obj)),
+    quo_expr(substitute(rlang::is_character(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -150,7 +150,7 @@ assert_is_logical <- function(obj,
                               error_class = NULL) {
   assert_(
     rlang::is_logical(obj),
-    quo_expr(rlang::is_logical(obj)),
+    quo_expr(substitute(rlang::is_logical(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -169,7 +169,7 @@ assert_is_raw <- function(obj,
                           error_class = NULL) {
   assert_(
     rlang::is_raw(obj),
-    quo_expr(rlang::is_raw(obj)),
+    quo_expr(substitute(rlang::is_raw(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )

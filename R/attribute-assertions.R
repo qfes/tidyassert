@@ -14,7 +14,7 @@ assert_is_named <- function(obj,
                             error_class = NULL) {
   assert_(
     rlang::is_named(obj),
-    quo_expr(rlang::is_named(obj)),
+    quo_expr(substitute(rlang::is_named(obj))),
     fmt_message(error_message, obj = quo_expr(substitute(obj))),
     error_class
   )
@@ -22,7 +22,7 @@ assert_is_named <- function(obj,
 
 #' Assert has names
 #'
-#' Raises an assertion error when `!all(rlang::has_name(obj, names))`.
+#' Raises an assertion error when `!rlang::has_name(obj, names)`.
 #' @name assert_has_names
 #' @inheritParams assert_is_named
 #' @param error_message <`string`> the error message.
@@ -42,8 +42,8 @@ assert_has_names <- function(obj,
   }
 
   assert_(
-    all(rlang::has_name(obj, names)),
-    quo_expr(all(rlang::has_name(obj, names))),
+    rlang::has_name(obj, names),
+    quo_expr(substitute(rlang::has_name(obj, names))),
     fmt_message(error_message, obj = quo_expr(substitute(obj)), names = fmt_names()),
     error_class
   )
