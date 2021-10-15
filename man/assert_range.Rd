@@ -20,8 +20,10 @@ assert_range(
 \item{max}{<\code{any}> the maximum value}
 
 \item{error_message}{<\code{string}> the error message.
-Accepts placeholders \code{{a}} and \code{{b}}, which will be replaced with the unevaluated expressions
-for \code{a} and \code{b}.}
+Accepts placeholders \code{{min}} and \code{{min}}, which will be replaced with the unevaluated expressions
+for \code{min} and \code{max}.}
+
+\item{error_class}{<\code{character}> the class name/s for the error.}
 }
 \description{
 Raises an assertion error when \code{!all(a >= min & a <= max)}

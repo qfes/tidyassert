@@ -2,6 +2,7 @@
 #'
 #' Raises an assertion error when `is.null(obj)`
 #' @name assert_not_null
+#' @inheritParams assert
 #' @param obj <`any`> any object
 #' @param error_message <`string`> the error message.
 #' Accepts placeholders `{obj}` which will be replaced with the unevaluated expression
@@ -23,11 +24,8 @@ assert_not_null <- function(obj,
 #' Assert not na
 #'
 #' Raises an assertion error when `anyNA(obj)`
+#' @inheritParams assert_not_null
 #' @name assert_not_na
-#' @param obj <`any`> any object
-#' @param error_message <`string`> the error message.
-#' Accepts placeholders `{obj}` which will be replaced with the unevaluated expression
-#' for `obj`.
 #'
 #' @family assertions
 #' @export

@@ -2,6 +2,7 @@
 #'
 #' Raises an assertion error when `!rlang::is_string(obj)`.
 #' @name assert_is_string
+#' @inheritParams assert
 #' @param obj <`any`> any value
 #' @param error_message <`string`> the error message.
 #' Accepts placeholder `{obj}` which will be replaced with the unevaluated expression for `obj`.

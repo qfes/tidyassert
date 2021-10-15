@@ -19,6 +19,8 @@ assert_typeof(
 \item{error_message}{<\code{string}> the error message.
 Accepts placeholders \code{{obj}} and \code{{type}}, which will be replaced with the
 unevaluated expressions for \code{obj} and \code{type}.}
+
+\item{error_class}{<\code{character}> the class name/s for the error.}
 }
 \description{
 Raises an assertion error when \code{typeof(obj) != type}.

@@ -19,6 +19,8 @@ assert_inherits(
 \item{error_message}{<\code{string}> the error message.
 Accepts placeholders \code{{obj}} and \code{{class}}, which will be replaced with the
 unevaluated expressions for \code{obj} and \code{class}.}
+
+\item{error_class}{<\code{character}> the class name/s for the error.}
 }
 \description{
 Raises an assertion error when \code{!inherits(obj, class)}.

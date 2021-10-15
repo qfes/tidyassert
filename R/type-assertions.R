@@ -2,6 +2,7 @@
 #'
 #' Raises an assertion error when `typeof(obj) != type`.
 #' @name assert_typeof
+#' @inheritParams assert
 #' @param obj <`any`> any value
 #' @param type <`string`> the expected type
 #' @param error_message <`string`> the error message.
@@ -27,7 +28,7 @@ assert_typeof <- function(obj, type,
 #'
 #' Raises an assertion error when `!inherits(obj, class)`.
 #' @name assert_inherits
-#' @param obj <`any`> any value
+#' @inheritParams assert_typeof
 #' @param class <`string` | `character`> the expected class(es)
 #' @param error_message <`string`> the error message.
 #' Accepts placeholders `{obj}` and `{class}`, which will be replaced with the

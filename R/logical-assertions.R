@@ -2,6 +2,7 @@
 #'
 #' Raises an assertion error when `!all(a == b)`.
 #' @name assert_equal
+#' @inheritParams assert
 #' @param a <`any`> any value
 #' @param b <`any`> any value
 #' @param error_message <`string`> the error message.
@@ -125,8 +126,8 @@ assert_greater_equal <- function(a, b,
 #' @param min <`any`> the minimum value
 #' @param max <`any`> the maximum value
 #' @param error_message <`string`> the error message.
-#' Accepts placeholders `{a}` and `{b}`, which will be replaced with the unevaluated expressions
-#' for `a` and `b`.
+#' Accepts placeholders `{min}` and `{min}`, which will be replaced with the unevaluated expressions
+#' for `min` and `max`.
 #'
 #' @family assertions
 #' @export

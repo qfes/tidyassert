@@ -16,6 +16,8 @@ assert_not_null(
 \item{error_message}{<\code{string}> the error message.
 Accepts placeholders \code{{obj}} which will be replaced with the unevaluated expression
 for \code{obj}.}
+
+\item{error_class}{<\code{character}> the class name/s for the error.}
 }
 \description{
 Raises an assertion error when \code{is.null(obj)}
