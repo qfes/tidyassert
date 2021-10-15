@@ -8,7 +8,7 @@
 #'
 #' @export
 assert <- function(expr, error_message = NULL, error_class = NULL) {
-  if (typeof(expr) != "logical") {
+  if (!is.logical(expr)) {
     rlang::abort("expr must be logical", "assert_error")
   }
 
