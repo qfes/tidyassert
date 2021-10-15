@@ -1,7 +1,7 @@
 #' Assert typeof
 #'
 #' Raises an assertion error when `typeof(obj) != type`.
-#' @name assert_typeof
+#' @name assert_is_typeof
 #' @inheritParams assert
 #' @param obj <`any`> any value
 #' @param type <`string`> the expected type
@@ -11,9 +11,9 @@
 #'
 #' @family type-assertions
 #' @export
-assert_typeof <- function(obj, type,
-                          error_message = "{obj} must be of type {!!type}",
-                          error_class = NULL) {
+assert_is_typeof <- function(obj, type,
+                             error_message = "{obj} must be of type {!!type}",
+                             error_class = NULL) {
   fmt_type <- function() I(paste0("<", type, ">"))
 
   assert_(
@@ -24,11 +24,18 @@ assert_typeof <- function(obj, type,
   )
 }
 
+#' @noRd
+#' @export
+assert_typeof <- function(...) {
+  .Deprecated("assert_is_typeof")
+  assert_is_typeof(...)
+}
+
 #' Assert inherits
 #'
 #' Raises an assertion error when `!inherits(obj, class)`.
 #' @name assert_inherits
-#' @inheritParams assert_typeof
+#' @inheritParams assert_is_typeof
 #' @param class <`string` | `character`> the expected class(es)
 #' @param error_message <`string`> the error message.
 #' Accepts placeholders `{obj}` and `{class}`, which will be replaced with the
@@ -56,7 +63,7 @@ assert_inherits <- function(obj, class,
 #'
 #' Raises an assertion error when `!rlang::is_integer(obj)`.
 #' @name assert_is_integer
-#' @inheritParams assert_typeof
+#' @inheritParams assert_is_typeof
 #' @param error_message <`string`> the error message.
 #' Accepts placeholder `{obj}` which will be replaced with the unevaluated expression for `obj`.
 #'

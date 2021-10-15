@@ -29,6 +29,6 @@ Other type-assertions:
 \code{\link{assert_is_integer}()},
 \code{\link{assert_is_logical}()},
 \code{\link{assert_is_raw}()},
-\code{\link{assert_typeof}()}
+\code{\link{assert_is_typeof}()}
 }
 \concept{type-assertions}
