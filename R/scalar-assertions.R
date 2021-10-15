@@ -58,6 +58,25 @@ assert_is_scalar_integer <- function(obj,
   )
 }
 
+#' Assert is scalar integerish
+#'
+#' Raises an assertion error when `!rlang::is_scalar_integerish(obj)`.
+#' @name assert_is_scalar_integerish
+#' @inheritParams assert_is_scalar_integer
+#'
+#' @family assertions
+#' @export
+assert_is_scalar_integerish <- function(obj,
+                                        error_message = "{obj} must be a scalar <integerish>",
+                                        error_class = NULL) {
+  assert_(
+    rlang::is_scalar_integerish(obj),
+    quo_expr(rlang::is_scalar_integerish(obj)),
+    fmt_message(error_message, obj = quo_expr(substitute(obj))),
+    error_class
+  )
+}
+
 #' Assert is scalar double
 #'
 #' Raises an assertion error when `!rlang::is_scalar_double(obj)`.

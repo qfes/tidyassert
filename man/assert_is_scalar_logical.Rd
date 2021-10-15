@@ -30,6 +30,7 @@ Other assertions:
 \code{\link{assert_is_bool}()},
 \code{\link{assert_is_scalar_character}()},
 \code{\link{assert_is_scalar_double}()},
+\code{\link{assert_is_scalar_integerish}()},
 \code{\link{assert_is_scalar_integer}()},
 \code{\link{assert_is_scalar_raw}()},
 \code{\link{assert_is_string}()},
