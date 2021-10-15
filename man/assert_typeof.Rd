@@ -7,7 +7,7 @@
 assert_typeof(
   obj,
   type,
-  error_message = c(x = "{obj} must be of type {!!type}"),
+  error_message = "{obj} must be of type {!!type}",
   error_class = NULL
 )
 }

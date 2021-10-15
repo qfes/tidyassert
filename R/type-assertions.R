@@ -11,7 +11,7 @@
 #' @family assertions
 #' @export
 assert_typeof <- function(obj, type,
-                          error_message = c(x = "{obj} must be of type {!!type}"),
+                          error_message = "{obj} must be of type {!!type}",
                           error_class = NULL) {
   fmt_type <- function() I(paste0("<", type, ">"))
 
@@ -36,7 +36,7 @@ assert_typeof <- function(obj, type,
 #' @family assertions
 #' @export
 assert_inherits <- function(obj, class,
-                            error_message = c(x = "{obj} must inherit {!!class}"),
+                            error_message = "{obj} must inherit {!!class}",
                             error_class = NULL) {
   fmt_class <- function() {
     class_str <- paste0("<", paste(class, collapse = " | "), ">")

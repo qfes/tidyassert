@@ -6,7 +6,7 @@
 \usage{
 assert_is_string(
   obj,
-  error_message = c(x = "{obj} must be a <string>"),
+  error_message = "{obj} must be a <string>",
   error_class = NULL
 )
 }

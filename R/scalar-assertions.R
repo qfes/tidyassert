@@ -9,7 +9,7 @@
 #' @family assertions
 #' @export
 assert_is_string <- function(obj,
-                             error_message = c(x = "{obj} must be a <string>"),
+                             error_message = "{obj} must be a <string>",
                              error_class = NULL) {
   assert_(
     rlang::is_string(obj),
