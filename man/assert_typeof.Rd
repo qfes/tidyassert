@@ -27,6 +27,12 @@ Raises an assertion error when \code{typeof(obj) != type}.
 }
 \seealso{
 Other type-assertions: 
-\code{\link{assert_inherits}()}
+\code{\link{assert_inherits}()},
+\code{\link{assert_is_character}()},
+\code{\link{assert_is_double}()},
+\code{\link{assert_is_integerish}()},
+\code{\link{assert_is_integer}()},
+\code{\link{assert_is_logical}()},
+\code{\link{assert_is_raw}()}
 }
 \concept{type-assertions}

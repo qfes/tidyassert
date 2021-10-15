@@ -51,3 +51,119 @@ assert_inherits <- function(obj, class,
     error_class
   )
 }
+
+#' Assert is integer
+#'
+#' Raises an assertion error when `!rlang::is_integer(obj)`.
+#' @name assert_is_integer
+#' @inheritParams assert_typeof
+#' @param error_message <`string`> the error message.
+#' Accepts placeholder `{obj}` which will be replaced with the unevaluated expression for `obj`.
+#'
+#' @family type-assertions
+#' @export
+assert_is_integer <- function(obj,
+                              error_message = "{obj} must be an <integer> vector",
+                              error_class = NULL) {
+  assert_(
+    rlang::is_integer(obj),
+    quo_expr(rlang::is_integer(obj)),
+    fmt_message(error_message, obj = quo_expr(substitute(obj))),
+    error_class
+  )
+}
+
+#' Assert is integerish
+#'
+#' Raises an assertion error when `!rlang::is_integerish(obj)`.
+#' @name assert_is_integerish
+#' @inheritParams assert_is_integer
+#'
+#' @family type-assertions
+#' @export
+assert_is_integerish <- function(obj,
+                                 error_message = "{obj} must be an <integerish> vector",
+                                 error_class = NULL) {
+  assert_(
+    rlang::is_integerish(obj),
+    quo_expr(rlang::is_integerish(obj)),
+    fmt_message(error_message, obj = quo_expr(substitute(obj))),
+    error_class
+  )
+}
+
+#' Assert is double
+#'
+#' Raises an assertion error when `!rlang::is_double(obj)`.
+#' @name assert_is_double
+#' @inheritParams assert_is_integer
+#'
+#' @family type-assertions
+#' @export
+assert_is_double <- function(obj,
+                             error_message = "{obj} must be a <double> vector",
+                             error_class = NULL) {
+  assert_(
+    rlang::is_double(obj),
+    quo_expr(rlang::is_double(obj)),
+    fmt_message(error_message, obj = quo_expr(substitute(obj))),
+    error_class
+  )
+}
+
+#' Assert is character
+#'
+#' Raises an assertion error when `!rlang::is_character(obj)`.
+#' @name assert_is_character
+#' @inheritParams assert_is_integer
+#'
+#' @family type-assertions
+#' @export
+assert_is_character <- function(obj,
+                                error_message = "{obj} must be a <character> vector",
+                                error_class = NULL) {
+  assert_(
+    rlang::is_character(obj),
+    quo_expr(rlang::is_character(obj)),
+    fmt_message(error_message, obj = quo_expr(substitute(obj))),
+    error_class
+  )
+}
+
+#' Assert is logical
+#'
+#' Raises an assertion error when `!rlang::is_logical(obj)`.
+#' @name assert_is_logical
+#' @inheritParams assert_is_integer
+#'
+#' @family type-assertions
+#' @export
+assert_is_logical <- function(obj,
+                              error_message = "{obj} must be a <logical> vector",
+                              error_class = NULL) {
+  assert_(
+    rlang::is_logical(obj),
+    quo_expr(rlang::is_logical(obj)),
+    fmt_message(error_message, obj = quo_expr(substitute(obj))),
+    error_class
+  )
+}
+
+#' Assert is raw
+#'
+#' Raises an assertion error when `!rlang::is_raw(obj)`.
+#' @name assert_is_raw
+#' @inheritParams assert_is_integer
+#'
+#' @family type-assertions
+#' @export
+assert_is_raw <- function(obj,
+                          error_message = "{obj} must be a <raw> vector",
+                          error_class = NULL) {
+  assert_(
+    rlang::is_raw(obj),
+    quo_expr(rlang::is_raw(obj)),
+    fmt_message(error_message, obj = quo_expr(substitute(obj))),
+    error_class
+  )
+}
