@@ -9,7 +9,7 @@
 #' Accepts placeholders `{obj}` and `{type}`, which will be replaced with the
 #' unevaluated expressions for `obj` and `type`.
 #'
-#' @family assertions
+#' @family type-assertions
 #' @export
 assert_typeof <- function(obj, type,
                           error_message = "{obj} must be of type {!!type}",
@@ -34,7 +34,7 @@ assert_typeof <- function(obj, type,
 #' Accepts placeholders `{obj}` and `{class}`, which will be replaced with the
 #' unevaluated expressions for `obj` and `class`.
 #'
-#' @family assertions
+#' @family type-assertions
 #' @export
 assert_inherits <- function(obj, class,
                             error_message = "{obj} must inherit {!!class}",

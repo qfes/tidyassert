@@ -7,7 +7,7 @@
 #' @param error_message <`string`> the error message.
 #' Accepts placeholder `{obj}` which will be replaced with the unevaluated expression for `obj`.
 #'
-#' @family assertions
+#' @family scalar-assertions
 #' @export
 assert_is_string <- function(obj,
                              error_message = "{obj} must be a <string>",
@@ -26,7 +26,7 @@ assert_is_string <- function(obj,
 #' @name assert_is_bool
 #' @inheritParams assert_is_string
 #'
-#' @family assertions
+#' @family scalar-assertions
 #' @export
 assert_is_bool <- function(obj,
                            error_message = "{obj} must be a <bool>",
@@ -45,7 +45,7 @@ assert_is_bool <- function(obj,
 #' @name assert_is_scalar_integer
 #' @inheritParams assert_is_string
 #'
-#' @family assertions
+#' @family scalar-assertions
 #' @export
 assert_is_scalar_integer <- function(obj,
                                      error_message = "{obj} must be a scalar <integer>",
@@ -64,7 +64,7 @@ assert_is_scalar_integer <- function(obj,
 #' @name assert_is_scalar_integerish
 #' @inheritParams assert_is_scalar_integer
 #'
-#' @family assertions
+#' @family scalar-assertions
 #' @export
 assert_is_scalar_integerish <- function(obj,
                                         error_message = "{obj} must be a scalar <integerish>",
@@ -83,7 +83,7 @@ assert_is_scalar_integerish <- function(obj,
 #' @name assert_is_scalar_double
 #' @inheritParams assert_is_scalar_integer
 #'
-#' @family assertions
+#' @family scalar-assertions
 #' @export
 assert_is_scalar_double <- function(obj,
                                     error_message = "{obj} must be a scalar <double>",
@@ -102,7 +102,7 @@ assert_is_scalar_double <- function(obj,
 #' @name assert_is_scalar_character
 #' @inheritParams assert_is_scalar_integer
 #'
-#' @family assertions
+#' @family scalar-assertions
 #' @export
 assert_is_scalar_character <- function(obj,
                                        error_message = "{obj} must be a scalar <character>",
@@ -121,7 +121,7 @@ assert_is_scalar_character <- function(obj,
 #' @name assert_is_scalar_logical
 #' @inheritParams assert_is_scalar_integer
 #'
-#' @family assertions
+#' @family scalar-assertions
 #' @export
 assert_is_scalar_logical <- function(obj,
                                      error_message = "{obj} must be a scalar <logical>",
@@ -140,7 +140,7 @@ assert_is_scalar_logical <- function(obj,
 #' @name assert_is_scalar_raw
 #' @inheritParams assert_is_scalar_integer
 #'
-#' @family assertions
+#' @family scalar-assertions
 #' @export
 assert_is_scalar_raw <- function(obj,
                                  error_message = "{obj} must be a scalar <raw>",

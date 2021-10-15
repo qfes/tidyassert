@@ -9,7 +9,7 @@
 #' Accepts placeholders `{a}` and `{b}`, which will be replaced with the unevaluated expressions
 #' for `a` and `b`.
 #'
-#' @family assertions
+#' @family logical-assertions
 #' @export
 assert_equal <- function(a, b,
                          error_message = "{a} must equal {b}",
@@ -28,7 +28,7 @@ assert_equal <- function(a, b,
 #' @name assert_not_equal
 #' @inherit assert_equal
 #'
-#' @family assertions
+#' @family logical-assertions
 #' @export
 assert_not_equal <- function(a, b,
                              error_message = "{a} must not equal {b}",
@@ -47,7 +47,7 @@ assert_not_equal <- function(a, b,
 #' @name assert_less
 #' @inherit assert_equal
 #'
-#' @family assertions
+#' @family logical-assertions
 #' @export
 assert_less <- function(a, b,
                         error_message = "{a} must be less than {b}",
@@ -66,7 +66,7 @@ assert_less <- function(a, b,
 #' @name assert_less_equal
 #' @inherit assert_equal
 #'
-#' @family assertions
+#' @family logical-assertions
 #' @export
 assert_less_equal <- function(a, b,
                               error_message = "{a} must be less than or equal {b}",
@@ -85,7 +85,7 @@ assert_less_equal <- function(a, b,
 #' @name assert_greater
 #' @inherit assert_equal
 #'
-#' @family assertions
+#' @family logical-assertions
 #' @export
 assert_greater <- function(a, b,
                            error_message = "{a} must be greater than {b}",
@@ -104,7 +104,7 @@ assert_greater <- function(a, b,
 #' @name assert_greater_equal
 #' @inherit assert_equal
 #'
-#' @family assertions
+#' @family logical-assertions
 #' @export
 assert_greater_equal <- function(a, b,
                                  error_message = "{a} must be greater than or equal {b}",
@@ -129,7 +129,7 @@ assert_greater_equal <- function(a, b,
 #' Accepts placeholders `{min}` and `{min}`, which will be replaced with the unevaluated expressions
 #' for `min` and `max`.
 #'
-#' @family assertions
+#' @family logical-assertions
 #' @export
 assert_range <- function(obj, min, max,
                          error_message = "{obj} must be within [{!!min}, {!!max}]",

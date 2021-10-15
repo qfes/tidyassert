@@ -24,23 +24,6 @@ Raises an assertion error when \code{anyNA(obj)}
 }
 \seealso{
 Other assertions: 
-\code{\link{assert_equal}()},
-\code{\link{assert_greater_equal}()},
-\code{\link{assert_greater}()},
-\code{\link{assert_inherits}()},
-\code{\link{assert_is_bool}()},
-\code{\link{assert_is_scalar_character}()},
-\code{\link{assert_is_scalar_double}()},
-\code{\link{assert_is_scalar_integerish}()},
-\code{\link{assert_is_scalar_integer}()},
-\code{\link{assert_is_scalar_logical}()},
-\code{\link{assert_is_scalar_raw}()},
-\code{\link{assert_is_string}()},
-\code{\link{assert_less_equal}()},
-\code{\link{assert_less}()},
-\code{\link{assert_not_equal}()},
-\code{\link{assert_not_null}()},
-\code{\link{assert_range}()},
-\code{\link{assert_typeof}()}
+\code{\link{assert_not_null}()}
 }
 \concept{assertions}
