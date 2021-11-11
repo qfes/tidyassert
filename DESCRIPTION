@@ -1,4 +1,4 @@
-Package: assert
+Package: tidyassert
 Title: Tidy assertions
 Version: 0.2.0
 Authors@R: c(
@@ -7,8 +7,8 @@ Authors@R: c(
 Description: A re-imagining of stopifnot() with rlang::abort().
     Provides an api for simple input (and output) validation with consistent error messages.
 License: MIT + file LICENSE
-URL: https://github.com/qfes/assert
-BugReports: https://github.com/qfes/assert/issues
+URL: https://github.com/qfes/tidyassert
+BugReports: https://github.com/qfes/tidyassert/issues
 Depends:
     R (>= 4.1.0)
 Encoding: UTF-8
