@@ -9,7 +9,8 @@ assert(expr, error_message = NULL, error_class = NULL)
 \arguments{
 \item{expr}{<\code{expression}> a logical expression to test.}
 
-\item{error_message}{<\code{string}> a message to be displayed when assertion fails.}
+\item{error_message}{<\code{string}> a message to be displayed when assertion fails.
+Accepts placeholder \code{{expr}} which will be replaced with the unevaluated expression for \code{expr}.}
 
 \item{error_class}{<\code{character}> the class name/s for the error.}
 }

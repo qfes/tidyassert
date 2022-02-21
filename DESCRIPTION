@@ -1,6 +1,6 @@
 Package: tidyassert
 Title: Tidy assertions
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: c(
     person(given = "Anthony", family = "North", role = c("aut", "cre"), email = "anthony.north@qfes.qld.gov.au"),
     person(given = "Queensland Fire and Emergency Services", role = c("cph", "fnd")))

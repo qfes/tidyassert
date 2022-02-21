@@ -4,6 +4,7 @@
 #' @name assert
 #' @param expr <`expression`> a logical expression to test.
 #' @param error_message <`string`> a message to be displayed when assertion fails.
+#' Accepts placeholder `{expr}` which will be replaced with the unevaluated expression for `expr`.
 #' @param error_class <`character`> the class name/s for the error.
 #'
 #' @export
@@ -12,7 +13,12 @@ assert <- function(expr, error_message = NULL, error_class = NULL) {
     rlang::abort("expr must be logical", "assert_error")
   }
 
-  assert_(expr, quo_expr(substitute(expr)), error_message, error_class)
+  assert_(
+    expr,
+    quo_expr(substitute(expr)),
+    if (!is.null(error_message)) fmt_message(error_message, expr = quo_expr(substitute(expr))),
+    error_class
+  )
 }
 
 assert_ <- function(expr, qexpr, error_message = NULL, error_class = NULL, call = sys.call(-2L)) {
