@@ -152,3 +152,22 @@ assert_is_scalar_raw <- function(obj,
     error_class
   )
 }
+
+#' Assert is scalar numeric
+#'
+#' Raises an assertion error when `!is.numeric(obj) || length(obj) != 1L`.
+#' @name assert_is_scalar_numeric
+#' @inheritParams assert_is_scalar_integer
+#'
+#' @family scalar-assertions
+#' @export
+assert_is_scalar_numeric <- function(obj,
+                                     error_message = "{obj} must be a scalar <numeric>",
+                                     error_class = NULL) {
+  assert_(
+    is.numeric(obj) && length(obj) == 1L,
+    quo_expr(substitute(is.numeric(obj) && length(obj) == 1L)),
+    fmt_message(error_message, obj = quo_expr(substitute(obj))),
+    error_class
+  )
+}

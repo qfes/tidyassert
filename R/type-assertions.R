@@ -174,3 +174,22 @@ assert_is_raw <- function(obj,
     error_class
   )
 }
+
+#' Assert is numeric
+#'
+#' Raises an assertion error when `!is.numeric(obj)`.
+#' @name assert_is_numeric
+#' @inheritParams assert_is_integer
+#'
+#' @family type-assertions
+#' @export
+assert_is_numeric <- function(obj,
+                             error_message = "{obj} must be a <numeric> vector",
+                             error_class = NULL) {
+  assert_(
+    is.numeric(obj),
+    quo_expr(substitute(is.numeric(obj))),
+    fmt_message(error_message, obj = quo_expr(substitute(obj))),
+    error_class
+  )
+}

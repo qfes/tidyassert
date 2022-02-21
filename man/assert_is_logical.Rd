@@ -28,6 +28,7 @@ Other type-assertions:
 \code{\link{assert_is_double}()},
 \code{\link{assert_is_integerish}()},
 \code{\link{assert_is_integer}()},
+\code{\link{assert_is_numeric}()},
 \code{\link{assert_is_raw}()},
 \code{\link{assert_is_typeof}()}
 }

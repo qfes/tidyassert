@@ -29,6 +29,7 @@ Other type-assertions:
 \code{\link{assert_is_integerish}()},
 \code{\link{assert_is_integer}()},
 \code{\link{assert_is_logical}()},
+\code{\link{assert_is_numeric}()},
 \code{\link{assert_is_typeof}()}
 }
 \concept{type-assertions}

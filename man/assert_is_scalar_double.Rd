@@ -28,6 +28,7 @@ Other scalar-assertions:
 \code{\link{assert_is_scalar_integerish}()},
 \code{\link{assert_is_scalar_integer}()},
 \code{\link{assert_is_scalar_logical}()},
+\code{\link{assert_is_scalar_numeric}()},
 \code{\link{assert_is_scalar_raw}()},
 \code{\link{assert_is_string}()}
 }
