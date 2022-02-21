@@ -14,6 +14,8 @@ assert_has_names(
 \arguments{
 \item{obj}{<\code{any}> any value}
 
+\item{names}{<\code{character}> a vector of names.}
+
 \item{error_message}{<\code{string}> the error message.
 Accepts placeholders \code{{obj}} and \code{{names}}, which will be replaced with the
 unevaluated expressions for \code{obj} and \code{names}.}

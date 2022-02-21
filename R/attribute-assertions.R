@@ -25,6 +25,7 @@ assert_is_named <- function(obj,
 #' Raises an assertion error when `!rlang::has_name(obj, names)`.
 #' @name assert_has_names
 #' @inheritParams assert_is_named
+#' @param names <`character`> a vector of names.
 #' @param error_message <`string`> the error message.
 #' Accepts placeholders `{obj}` and `{names}`, which will be replaced with the
 #' unevaluated expressions for `obj` and `names`.
