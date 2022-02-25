@@ -16,4 +16,5 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports:
-    rlang
+    cli,
+    rlang (>= 1.0.0)

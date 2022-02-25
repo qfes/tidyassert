@@ -8,7 +8,7 @@ assert_range(
   obj,
   min,
   max,
-  error_message = "{obj} must be within [{!!min}, {!!max}]",
+  error_message = "{.arg obj} must be within [{.arg min}, {.arg max}]",
   error_class = NULL
 )
 }
@@ -19,9 +19,7 @@ assert_range(
 
 \item{max}{<\code{any}> the maximum value}
 
-\item{error_message}{<\code{string}> the error message.
-Accepts placeholders \code{{min}} and \code{{min}}, which will be replaced with the unevaluated expressions
-for \code{min} and \code{max}.}
+\item{error_message}{<\code{string}> a message to be displayed when assertion fails.}
 
 \item{error_class}{<\code{character}> the class name/s for the error.}
 }

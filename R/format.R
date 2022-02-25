@@ -1,47 +1,37 @@
-# replace placeholders with values from named dots
-fmt_message <- function(templates, ...) {
-  sub_value <- function(template, name, value = args[[name]]) {
-    placeholder <- paste0("{", name, "}")
-    gsub(placeholder, fmt_value(value), template, fixed = TRUE)
-  }
-
-  sub_ivalue <- function(template, name, value = args[[name]]) {
-    placeholder <- paste0("{!!", name, "}")
-    gsub(placeholder, fmt_value(rlang::eval_tidy(value)), template, fixed = TRUE)
-  }
-
-  rpl_placeholders <- function(template, args) {
-    arg_names <- names(args)
-    template <- reduce(arg_names, sub_value, template)
-    reduce(arg_names, sub_ivalue, template)
-  }
-
-  args <- rlang::dots_list(..., .named = TRUE)
-  vapply_c(templates, rpl_placeholders, args = args)
+as_name <- function(quo) {
+  label <- rlang::as_label(quo)
+  if (rlang::quo_is_symbol(quo)) paste0("`", label, "`") else label
 }
 
-# format a value
-fmt_value <- function(value) {
-  if (inherits(value, "AsIs")) {
-    return(rlang::as_string(value))
-  }
+replace_names <- function(message, quos) {
+  patterns <- paste0("\\{\\.(arg|var)\\s*", names(quos), "\\s*\\}")
+  names <- vapply_c(quos, as_name)
 
-  if (rlang::is_quosure(value) && rlang::quo_is_symbol(value)) {
-    return(paste0("`", rlang::as_label(value), "`"))
-  }
-
-  rlang::as_label(value)
+  reduce(
+    seq_along(patterns),
+    function(msg, i) gsub(patterns[i], names[i], msg),
+    message
+  )
 }
 
-# format bullets
-fmt_bullets <- function(error_message) {
+ensure_bullets <- function(error_message, default = "x") {
+  nms <- names(error_message) %||% rep(default, length(error_message))
+  rlang::set_names(error_message, replace(nms, is.na(nms) | lengths(nms) == 0, "x"))
+}
+
+format_message <- function(error_message, quos) {
   if (is.null(error_message) || error_message == "") {
     return()
   }
 
-  if (!rlang::is_named(error_message)) {
-    names(error_message) <- rep("x", length(error_message))
-  }
+  patched_message <- replace_names(error_message, quos)
+  env <- rlang::as_environment(lapply(quos, rlang::eval_tidy))
 
-  rlang::format_error_bullets(error_message)
+  ensure_bullets(
+    vapply_c(
+      patched_message,
+      cli::format_inline,
+      .envir = env
+    )
+  )
 }

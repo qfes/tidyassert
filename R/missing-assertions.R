@@ -4,21 +4,20 @@
 #' @name assert_not_null
 #' @inheritParams assert
 #' @param obj <`any`> any object
-#' @param error_message <`string`> the error message.
-#' Accepts placeholders `{obj}` which will be replaced with the unevaluated expression
-#' for `obj`.
 #'
 #' @family assertions
 #' @export
 assert_not_null <- function(obj,
-                            error_message = "{obj} must be not NULL",
+                            error_message = "{.arg obj} must be not {.code NULL}",
                             error_class = NULL) {
-  assert_(
-    !is.null(obj),
-    quo_expr(substitute(!is.null(obj))),
-    fmt_message(error_message, obj = quo_expr(substitute(obj))),
-    error_class
-  )
+  if (!all_true(!is.null(obj))) {
+    signal_error(
+      substitute(!is.null(obj)),
+      error_message,
+      error_class,
+      obj = substitute(obj)
+    )
+  }
 }
 
 #' Assert not na
@@ -30,12 +29,14 @@ assert_not_null <- function(obj,
 #' @family assertions
 #' @export
 assert_not_na <- function(obj,
-                          error_message = "{obj} must be not contain NA",
+                          error_message = "{.arg obj} must be not contain {.code NA}",
                           error_class = NULL) {
-  assert_(
-    !anyNA(obj),
-    quo_expr(substitute(!anyNA(obj))),
-    fmt_message(error_message, obj = quo_expr(substitute(obj))),
-    error_class
-  )
+  if (!all_true(!anyNA(obj))) {
+    signal_error(
+      substitute(!anyNA(obj)),
+      error_message,
+      error_class,
+      obj = substitute(obj),
+    )
+  }
 }

@@ -4,15 +4,29 @@
 \alias{assert}
 \title{Assert}
 \usage{
-assert(expr, error_message = NULL, error_class = NULL)
+assert(
+  expr,
+  error_message = NULL,
+  error_class = NULL,
+  env = rlang::caller_env(2L),
+  print_expr = NULL,
+  ...
+)
 }
 \arguments{
 \item{expr}{<\code{expression}> a logical expression to test.}
 
-\item{error_message}{<\code{string}> a message to be displayed when assertion fails.
-Accepts placeholder \code{{expr}} which will be replaced with the unevaluated expression for \code{expr}.}
+\item{error_message}{<\code{string}> a message to be displayed when assertion fails.}
 
 \item{error_class}{<\code{character}> the class name/s for the error.}
+
+\item{env}{<\code{environment}> the environment for substituted \code{dots} and \code{print_expr}.
+Has no effect if \code{dots} and \code{print_expr} are already quosures.}
+
+\item{print_expr}{<\code{expression}> a diffused expression for altering the error message.
+Defaults to \code{rlang::as_quosure(substitute(expr), rlang::caller_env())}}
+
+\item{...}{<\code{any}> values used in evaluating glue expressions, for the error message.}
 }
 \description{
 Raises an assertion error when \code{any(expr)} is false.

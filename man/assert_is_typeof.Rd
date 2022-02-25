@@ -7,7 +7,7 @@
 assert_is_typeof(
   obj,
   type,
-  error_message = "{obj} must be of type {!!type}",
+  error_message = "{.arg obj} must be of type {.cls {type}}",
   error_class = NULL
 )
 }
@@ -16,9 +16,7 @@ assert_is_typeof(
 
 \item{type}{<\code{string}> the expected type}
 
-\item{error_message}{<\code{string}> the error message.
-Accepts placeholders \code{{obj}} and \code{{type}}, which will be replaced with the
-unevaluated expressions for \code{obj} and \code{type}.}
+\item{error_message}{<\code{string}> a message to be displayed when assertion fails.}
 
 \item{error_class}{<\code{character}> the class name/s for the error.}
 }

@@ -7,7 +7,7 @@
 assert_inherits(
   obj,
   class,
-  error_message = "{obj} must inherit {!!class}",
+  error_message = "{.arg obj} must inherit {.cls {class}}",
   error_class = NULL
 )
 }
@@ -16,9 +16,7 @@ assert_inherits(
 
 \item{class}{<\code{string} | \code{character}> the expected class(es)}
 
-\item{error_message}{<\code{string}> the error message.
-Accepts placeholders \code{{obj}} and \code{{class}}, which will be replaced with the
-unevaluated expressions for \code{obj} and \code{class}.}
+\item{error_message}{<\code{string}> a message to be displayed when assertion fails.}
 
 \item{error_class}{<\code{character}> the class name/s for the error.}
 }

@@ -7,7 +7,7 @@
 assert_has_names(
   obj,
   names,
-  error_message = "{obj} must have names {!!names}",
+  error_message = "{.arg obj} must have names {.arg names}",
   error_class = NULL
 )
 }
@@ -16,9 +16,7 @@ assert_has_names(
 
 \item{names}{<\code{character}> a vector of names.}
 
-\item{error_message}{<\code{string}> the error message.
-Accepts placeholders \code{{obj}} and \code{{names}}, which will be replaced with the
-unevaluated expressions for \code{obj} and \code{names}.}
+\item{error_message}{<\code{string}> a message to be displayed when assertion fails.}
 
 \item{error_class}{<\code{character}> the class name/s for the error.}
 }

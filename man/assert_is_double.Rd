@@ -6,15 +6,14 @@
 \usage{
 assert_is_double(
   obj,
-  error_message = "{obj} must be a <double> vector",
+  error_message = "{.arg obj} must be a {.cls double} vector",
   error_class = NULL
 )
 }
 \arguments{
 \item{obj}{<\code{any}> any value}
 
-\item{error_message}{<\code{string}> the error message.
-Accepts placeholder \code{{obj}} which will be replaced with the unevaluated expression for \code{obj}.}
+\item{error_message}{<\code{string}> a message to be displayed when assertion fails.}
 
 \item{error_class}{<\code{character}> the class name/s for the error.}
 }

@@ -4,20 +4,20 @@
 #' @name assert_is_string
 #' @inheritParams assert
 #' @param obj <`any`> any value
-#' @param error_message <`string`> the error message.
-#' Accepts placeholder `{obj}` which will be replaced with the unevaluated expression for `obj`.
 #'
 #' @family scalar-assertions
 #' @export
 assert_is_string <- function(obj,
-                             error_message = "{obj} must be a <string>",
+                             error_message = "{.arg obj} must be a {.cls string}",
                              error_class = NULL) {
-  assert_(
-    rlang::is_string(obj),
-    quo_expr(substitute(rlang::is_string(obj))),
-    fmt_message(error_message, obj = quo_expr(substitute(obj))),
-    error_class
-  )
+  if (!all_true(rlang::is_string(obj))) {
+    signal_error(
+      substitute(rlang::is_string(obj)),
+      error_message,
+      error_class,
+      obj = substitute(obj)
+    )
+  }
 }
 
 #' Assert is bool
@@ -29,14 +29,16 @@ assert_is_string <- function(obj,
 #' @family scalar-assertions
 #' @export
 assert_is_bool <- function(obj,
-                           error_message = "{obj} must be a <bool>",
+                           error_message = "{.arg obj} must be a {.cls bool}",
                            error_class = NULL) {
-  assert_(
-    rlang::is_bool(obj),
-    quo_expr(substitute(rlang::is_bool(obj))),
-    fmt_message(error_message, obj = quo_expr(substitute(obj))),
-    error_class
-  )
+  if (!all_true(rlang::is_bool(obj))) {
+    signal_error(
+      substitute(rlang::is_bool(obj)),
+      error_message,
+      error_class,
+      obj = substitute(obj)
+    )
+  }
 }
 
 #' Assert is scalar integer
@@ -48,14 +50,16 @@ assert_is_bool <- function(obj,
 #' @family scalar-assertions
 #' @export
 assert_is_scalar_integer <- function(obj,
-                                     error_message = "{obj} must be a scalar <integer>",
+                                     error_message = "{.arg obj} must be a scalar {.cls integer}",
                                      error_class = NULL) {
-  assert_(
-    rlang::is_scalar_integer(obj),
-    quo_expr(substitute(rlang::is_scalar_integer(obj))),
-    fmt_message(error_message, obj = quo_expr(substitute(obj))),
-    error_class
-  )
+  if (!all_true(rlang::is_scalar_integer(obj))) {
+    signal_error(
+      substitute(rlang::is_scalar_integer(obj)),
+      error_message,
+      error_class,
+      obj = substitute(obj)
+    )
+  }
 }
 
 #' Assert is scalar integerish
@@ -67,14 +71,16 @@ assert_is_scalar_integer <- function(obj,
 #' @family scalar-assertions
 #' @export
 assert_is_scalar_integerish <- function(obj,
-                                        error_message = "{obj} must be a scalar <integerish>",
+                                        error_message = "{.arg obj} must be a scalar {.cls integerish}",
                                         error_class = NULL) {
-  assert_(
-    rlang::is_scalar_integerish(obj),
-    quo_expr(substitute(rlang::is_scalar_integerish(obj))),
-    fmt_message(error_message, obj = quo_expr(substitute(obj))),
-    error_class
-  )
+  if (!all_true(rlang::is_scalar_integerish(obj))) {
+    signal_error(
+      substitute(rlang::is_scalar_integerish(obj)),
+      error_message,
+      error_class,
+      obj = substitute(obj)
+    )
+  }
 }
 
 #' Assert is scalar double
@@ -86,14 +92,16 @@ assert_is_scalar_integerish <- function(obj,
 #' @family scalar-assertions
 #' @export
 assert_is_scalar_double <- function(obj,
-                                    error_message = "{obj} must be a scalar <double>",
+                                    error_message = "{.arg obj} must be a scalar {.cls double}",
                                     error_class = NULL) {
-  assert_(
-    rlang::is_scalar_double(obj),
-    quo_expr(substitute(rlang::is_scalar_double(obj))),
-    fmt_message(error_message, obj = quo_expr(substitute(obj))),
-    error_class
-  )
+  if (!all_true(rlang::is_scalar_double(obj))) {
+    signal_error(
+      substitute(rlang::is_scalar_double(obj)),
+      error_message,
+      error_class,
+      obj = substitute(obj),
+    )
+  }
 }
 
 #' Assert is scalar character
@@ -105,14 +113,16 @@ assert_is_scalar_double <- function(obj,
 #' @family scalar-assertions
 #' @export
 assert_is_scalar_character <- function(obj,
-                                       error_message = "{obj} must be a scalar <character>",
+                                       error_message = "{.arg obj} must be a scalar {.cls character}",
                                        error_class = NULL) {
-  assert_(
-    rlang::is_scalar_character(obj),
-    quo_expr(substitute(rlang::is_scalar_character(obj))),
-    fmt_message(error_message, obj = quo_expr(substitute(obj))),
-    error_class
-  )
+  if (!all_true(rlang::is_scalar_character(obj))) {
+    signal_error(
+      substitute(rlang::is_scalar_character(obj)),
+      error_message,
+      error_class,
+      obj = substitute(obj)
+    )
+  }
 }
 
 #' Assert is scalar logical
@@ -124,14 +134,16 @@ assert_is_scalar_character <- function(obj,
 #' @family scalar-assertions
 #' @export
 assert_is_scalar_logical <- function(obj,
-                                     error_message = "{obj} must be a scalar <logical>",
+                                     error_message = "{.arg obj} must be a scalar {.cls logical}",
                                      error_class = NULL) {
-  assert_(
-    rlang::is_scalar_logical(obj),
-    quo_expr(substitute(rlang::is_scalar_logical(obj))),
-    fmt_message(error_message, obj = quo_expr(substitute(obj))),
-    error_class
-  )
+  if (!all_true(rlang::is_scalar_logical(obj))) {
+    signal_error(
+      substitute(rlang::is_scalar_logical(obj)),
+      error_message,
+      error_class,
+      obj = substitute(obj),
+    )
+  }
 }
 
 #' Assert is scalar raw
@@ -143,14 +155,16 @@ assert_is_scalar_logical <- function(obj,
 #' @family scalar-assertions
 #' @export
 assert_is_scalar_raw <- function(obj,
-                                 error_message = "{obj} must be a scalar <raw>",
+                                 error_message = "{.arg obj} must be a scalar {.cls raw}",
                                  error_class = NULL) {
-  assert_(
-    rlang::is_scalar_raw(obj),
-    quo_expr(substitute(rlang::is_scalar_raw(obj))),
-    fmt_message(error_message, obj = quo_expr(substitute(obj))),
-    error_class
-  )
+  if (!all_true(rlang::is_scalar_raw(obj))) {
+    signal_error(
+      substitute(rlang::is_scalar_raw(obj)),
+      error_message,
+      error_class,
+      obj = substitute(obj)
+    )
+  }
 }
 
 #' Assert is scalar numeric
@@ -162,12 +176,14 @@ assert_is_scalar_raw <- function(obj,
 #' @family scalar-assertions
 #' @export
 assert_is_scalar_numeric <- function(obj,
-                                     error_message = "{obj} must be a scalar <numeric>",
+                                     error_message = "{.arg obj} must be a scalar {.cls numeric}",
                                      error_class = NULL) {
-  assert_(
-    is.numeric(obj) && length(obj) == 1L,
-    quo_expr(substitute(is.numeric(obj) && length(obj) == 1L)),
-    fmt_message(error_message, obj = quo_expr(substitute(obj))),
-    error_class
-  )
+  if (!all_true(is.numeric(obj) && length(obj) == 1L)) {
+    signal_error(
+      substitute(is.numeric(obj) && length(obj) == 1L),
+      error_message,
+      error_class,
+      obj = substitute(obj)
+    )
+  }
 }

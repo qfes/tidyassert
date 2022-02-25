@@ -5,21 +5,21 @@
 #' @inheritParams assert
 #' @param a <`any`> any value
 #' @param b <`any`> any value
-#' @param error_message <`string`> the error message.
-#' Accepts placeholders `{a}` and `{b}`, which will be replaced with the unevaluated expressions
-#' for `a` and `b`.
 #'
 #' @family logical-assertions
 #' @export
 assert_equal <- function(a, b,
-                         error_message = "{a} must equal {b}",
+                         error_message = "{.arg a} must equal {.arg b}",
                          error_class = NULL) {
-  assert_(
-    a == b,
-    quo_expr(substitute(a == b)),
-    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
-    error_class
-  )
+  if (!all_true(a == b)) {
+    signal_error(
+      substitute(a == b),
+      error_message,
+      error_class,
+      a = substitute(a),
+      b = substitute(b)
+    )
+  }
 }
 
 #' Assert not equal
@@ -31,14 +31,17 @@ assert_equal <- function(a, b,
 #' @family logical-assertions
 #' @export
 assert_not_equal <- function(a, b,
-                             error_message = "{a} must not equal {b}",
+                             error_message = "{.arg a} must not equal {.arg b}",
                              error_class = NULL) {
-  assert_(
-    a != b,
-    quo_expr(substitute(a != b)),
-    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
-    error_class
-  )
+  if (!all_true(a != b)) {
+    signal_error(
+      substitute(a != b),
+      error_message,
+      error_class,
+      a = substitute(a),
+      b = substitute(b)
+    )
+  }
 }
 
 #' Assert less
@@ -50,14 +53,17 @@ assert_not_equal <- function(a, b,
 #' @family logical-assertions
 #' @export
 assert_less <- function(a, b,
-                        error_message = "{a} must be less than {b}",
+                        error_message = "{.arg a} must be less than {.arg b}",
                         error_class = NULL) {
-  assert_(
-    a < b,
-    quo_expr(substitute(a < b)),
-    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
-    error_class
-  )
+  if (!all_true(a < b)) {
+    signal_error(
+      substitute(a < b),
+      error_message,
+      error_class,
+      a = substitute(a),
+      b = substitute(b)
+    )
+  }
 }
 
 #' Assert less equal
@@ -69,14 +75,17 @@ assert_less <- function(a, b,
 #' @family logical-assertions
 #' @export
 assert_less_equal <- function(a, b,
-                              error_message = "{a} must be less than or equal {b}",
+                              error_message = "{.arg a} must be less than or equal {.arg b}",
                               error_class = NULL) {
-  assert_(
-    a <= b,
-    quo_expr(substitute(a <= b)),
-    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
-    error_class
-  )
+  if (!all_true(a <= b)) {
+    signal_error(
+      substitute(a <= b),
+      error_message,
+      error_class,
+      a = substitute(a),
+      b = substitute(b)
+    )
+  }
 }
 
 #' Assert greater
@@ -88,14 +97,17 @@ assert_less_equal <- function(a, b,
 #' @family logical-assertions
 #' @export
 assert_greater <- function(a, b,
-                           error_message = "{a} must be greater than {b}",
+                           error_message = "{.arg a} must be greater than {.arg b}",
                            error_class = NULL) {
-  assert_(
-    a > b,
-    quo_expr(substitute(a > b)),
-    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
-    error_class
-  )
+  if (!all_true(a > b)) {
+    signal_error(
+      substitute(a > b),
+      error_message,
+      error_class,
+      a = substitute(a),
+      b = substitute(b)
+    )
+  }
 }
 
 #' Assert greater equal
@@ -107,14 +119,17 @@ assert_greater <- function(a, b,
 #' @family logical-assertions
 #' @export
 assert_greater_equal <- function(a, b,
-                                 error_message = "{a} must be greater than or equal {b}",
+                                 error_message = "{.arg a} must be greater than or equal {.arg b}",
                                  error_class = NULL) {
-  assert_(
-    a >= b,
-    quo_expr(substitute(a >= b)),
-    fmt_message(error_message, a = quo_expr(substitute(a)), b = quo_expr(substitute(b))),
-    error_class
-  )
+  if (!all_true(a >= b)) {
+    signal_error(
+      substitute(a >= b),
+      error_message,
+      error_class,
+      a = substitute(a),
+      b = substitute(b)
+    )
+  }
 }
 
 #' Assert range
@@ -125,25 +140,21 @@ assert_greater_equal <- function(a, b,
 #' @param obj <`any`> any object
 #' @param min <`any`> the minimum value
 #' @param max <`any`> the maximum value
-#' @param error_message <`string`> the error message.
-#' Accepts placeholders `{min}` and `{min}`, which will be replaced with the unevaluated expressions
-#' for `min` and `max`.
 #'
 #' @family logical-assertions
 #' @export
 assert_range <- function(obj, min, max,
-                         error_message = "{obj} must be within [{!!min}, {!!max}]",
+                         error_message = "{.arg obj} must be within [{.arg min}, {.arg max}]",
                          error_class = NULL) {
-  assert_less(min, max)
-  assert_(
-    obj >= min & obj <= max,
-    quo_expr(substitute(obj >= min & obj <= max)),
-    fmt_message(
+  assert_less_equal(min, max)
+  if (!all_true(obj >= min & obj <= max)) {
+    signal_error(
+      substitute(obj >= min & obj <= max),
       error_message,
-      obj = quo_expr(substitute(obj)),
-      min = quo_expr(substitute(min)),
-      max = quo_expr(substitute(max))
-    ),
-    error_class
-  )
+      error_class,
+      obj = substitute(obj),
+      min = substitute(min),
+      max = substitute(max)
+    )
+  }
 }

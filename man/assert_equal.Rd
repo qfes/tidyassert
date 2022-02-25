@@ -4,16 +4,19 @@
 \alias{assert_equal}
 \title{Assert equal}
 \usage{
-assert_equal(a, b, error_message = "{a} must equal {b}", error_class = NULL)
+assert_equal(
+  a,
+  b,
+  error_message = "{.arg a} must equal {.arg b}",
+  error_class = NULL
+)
 }
 \arguments{
 \item{a}{<\code{any}> any value}
 
 \item{b}{<\code{any}> any value}
 
-\item{error_message}{<\code{string}> the error message.
-Accepts placeholders \code{{a}} and \code{{b}}, which will be replaced with the unevaluated expressions
-for \code{a} and \code{b}.}
+\item{error_message}{<\code{string}> a message to be displayed when assertion fails.}
 
 \item{error_class}{<\code{character}> the class name/s for the error.}
 }

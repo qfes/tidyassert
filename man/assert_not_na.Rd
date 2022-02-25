@@ -6,16 +6,14 @@
 \usage{
 assert_not_na(
   obj,
-  error_message = "{obj} must be not contain NA",
+  error_message = "{.arg obj} must be not contain {.code NA}",
   error_class = NULL
 )
 }
 \arguments{
 \item{obj}{<\code{any}> any object}
 
-\item{error_message}{<\code{string}> the error message.
-Accepts placeholders \code{{obj}} which will be replaced with the unevaluated expression
-for \code{obj}.}
+\item{error_message}{<\code{string}> a message to be displayed when assertion fails.}
 
 \item{error_class}{<\code{character}> the class name/s for the error.}
 }

@@ -1,6 +1,5 @@
-# wrap expression in quosure
-quo_expr <- function(expr, env = parent.frame(2L)) {
-  rlang::as_quosure(expr, env)
+quo_dots <- function(..., env = rlang::caller_env(2L), named = TRUE) {
+  rlang::as_quosures(c(...), env, named)
 }
 
 vapply_c <- function(x, fn, ...) {
@@ -11,3 +10,5 @@ reduce <- function(x, fn, init, ...) {
   fn_wrap <- function(x, y) fn(x, y, ...)
   Reduce(fn_wrap, x, init = init)
 }
+
+all_true <- function(expr) all(expr) && length(expr) != 0
