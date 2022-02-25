@@ -27,11 +27,9 @@ format_message <- function(error_message, quos) {
   patched_message <- replace_names(error_message, quos)
   env <- rlang::as_environment(lapply(quos, rlang::eval_tidy))
 
-  ensure_bullets(
-    vapply_c(
-      patched_message,
-      cli::format_inline,
-      .envir = env
-    )
+  vapply_c(
+    ensure_bullets(patched_message),
+    cli::format_inline,
+    .envir = env
   )
 }
