@@ -6,5 +6,7 @@
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
 #' @importFrom rlang %||%
+#' @importFrom rlang cnd_body
+#' @importFrom rlang cnd_header
 ## usethis namespace: end
 NULL

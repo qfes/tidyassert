@@ -46,13 +46,11 @@ signal_error <- function(expr, error_message = NULL, error_class = NULL,
   )
 }
 
-#' @importFrom rlang cnd_header
 #' @export
 cnd_header.assert_error <- function(cnd, ...) {
   paste("Assertion failed:", rlang::quo_text(cnd$print_expr))
 }
 
-#' @importFrom rlang cnd_body
 #' @export
 cnd_body.assert_error <- function(cnd, ...) {
   if (cnd$message != "") cnd$message
