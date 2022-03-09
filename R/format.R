@@ -16,7 +16,7 @@ replace_names <- function(message, quos) {
 
 ensure_bullets <- function(error_message, default = "*") {
   nms <- names(error_message) %||% rep(default, length(error_message))
-  rlang::set_names(error_message, replace(nms, is.na(nms) | lengths(nms) == 0, default))
+  rlang::set_names(error_message, replace(nms, is.na(nms) | nms == "", default))
 }
 
 format_message <- function(error_message, quos) {

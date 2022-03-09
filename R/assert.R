@@ -14,7 +14,7 @@
 #'
 #' @export
 assert <- function(expr, error_message = NULL, error_class = NULL,
-                   env = rlang::caller_env(2L), print_expr = NULL, ...) {
+                   env = rlang::caller_env(), print_expr = NULL, ...) {
   if (!is.logical(expr)) rlang::abort("expr must be logical", "assert_error")
 
   if (!all_true(expr)) {
@@ -25,14 +25,14 @@ assert <- function(expr, error_message = NULL, error_class = NULL,
       error_class,
       env,
       print_expr = print_expr %||% quo_expr,
-      rlang::as_quosures(c(...), env, named = TRUE)
+      ...
     )
   }
 }
 
 signal_error <- function(expr, error_message = NULL, error_class = NULL,
                          env = rlang::caller_env(2L), print_expr = NULL, ...) {
-  quo_dots <- rlang::as_quosures(c(...), env, named = TRUE)
+  quo_dots <- rlang::as_quosures(list(...), env, named = TRUE)
   # diffused expr to be retrieved from the error object
   quo_expr <- rlang::as_quosure(expr, rlang::caller_env(2L))
 

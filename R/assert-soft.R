@@ -10,7 +10,7 @@
 #'
 #' @export
 warn_if_not <- function(expr, warn_message = NULL, warn_class = NULL,
-                        env = rlang::caller_env(2L), print_expr = NULL, ...) {
+                        env = rlang::caller_env(), print_expr = NULL, ...) {
   if (!is.logical(expr)) rlang::abort("expr must be logical", "assert_error")
 
   if (!all_true(expr)) {
@@ -21,7 +21,7 @@ warn_if_not <- function(expr, warn_message = NULL, warn_class = NULL,
       warn_class,
       env,
       print_expr = print_expr %||% quo_expr,
-      rlang::as_quosures(c(...), env, named = TRUE)
+      ...
     )
   }
 }
@@ -47,7 +47,7 @@ warn_if <- function(expr, warn_message = NULL, warn_class = NULL,
       warn_class,
       env,
       print_expr = print_expr %||% quo_expr,
-      rlang::as_quosures(c(...), env, named = TRUE)
+      ...
     )
   }
 }
