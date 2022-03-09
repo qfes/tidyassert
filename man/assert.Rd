@@ -8,7 +8,8 @@ assert(
   expr,
   error_message = NULL,
   error_class = NULL,
-  env = rlang::caller_env(2L),
+  call = rlang::caller_call(),
+  env = rlang::caller_env(),
   print_expr = NULL,
   ...
 )
@@ -19,6 +20,18 @@ assert(
 \item{error_message}{<\code{string}> a message to be displayed when assertion fails.}
 
 \item{error_class}{<\code{character}> the class name/s for the error.}
+
+\item{call}{The execution environment of a currently running
+function, e.g. \code{call = caller_env()}. The corresponding function
+call is retrieved and mentioned in error messages as the source
+of the error.
+
+You only need to supply \code{call} when throwing a condition from a
+helper function which wouldn't be relevant to mention in the
+message.
+
+Can also be \code{NULL} or a \link[rlang:topic-defuse]{defused function call} to
+respectively not display any call or hard-code a code to display.}
 
 \item{env}{<\code{environment}> the environment for substituted \code{dots} and \code{print_expr}.
 Has no effect if \code{dots} and \code{print_expr} are already quosures.}

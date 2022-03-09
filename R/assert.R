@@ -3,6 +3,7 @@
 #' Raises an assertion error when `any(expr)` is false.
 #'
 #' @name assert
+#' @inheritParams rlang::abort
 #' @param expr <`expression`> a logical expression to test.
 #' @param error_message <`string`> a message to be displayed when assertion fails.
 #' @param error_class <`character`> the class name/s for the error.
@@ -14,6 +15,7 @@
 #'
 #' @export
 assert <- function(expr, error_message = NULL, error_class = NULL,
+                   call = rlang::caller_call(),
                    env = rlang::caller_env(), print_expr = NULL, ...) {
   if (!is.logical(expr)) rlang::abort("expr must be logical", "assert_error")
 
@@ -23,6 +25,7 @@ assert <- function(expr, error_message = NULL, error_class = NULL,
       quo_expr,
       error_message,
       error_class,
+      call,
       env,
       print_expr = print_expr %||% quo_expr,
       ...
@@ -31,6 +34,7 @@ assert <- function(expr, error_message = NULL, error_class = NULL,
 }
 
 signal_error <- function(expr, error_message = NULL, error_class = NULL,
+                         call = rlang::caller_call(2L),
                          env = rlang::caller_env(2L), print_expr = NULL, ...) {
   quo_dots <- rlang::as_quosures(list(...), env, named = TRUE)
   # diffused expr to be retrieved from the error object
@@ -42,7 +46,7 @@ signal_error <- function(expr, error_message = NULL, error_class = NULL,
     expr = quo_expr,
     # what is printed in the header?
     print_expr = rlang::as_quosure(print_expr %||% quo_expr, env),
-    call = rlang::caller_call()
+    call = call
   )
 }
 
