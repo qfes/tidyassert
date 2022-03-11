@@ -20,7 +20,7 @@ ensure_bullets <- function(error_message, default = "*") {
 }
 
 format_message <- function(error_message, quos) {
-  if (is.null(error_message) || error_message == "") {
+  if (is.null(error_message) || all(error_message == "")) {
     return()
   }
 
