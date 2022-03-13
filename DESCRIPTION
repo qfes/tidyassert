@@ -1,6 +1,6 @@
 Package: tidyassert
 Title: Tidy assertions
-Version: 0.3.3
+Version: 0.3.4
 Authors@R: c(
     person(given = "Anthony", family = "North", role = c("aut", "cre"), email = "anthony.north@qfes.qld.gov.au"),
     person(given = "Queensland Fire and Emergency Services", role = c("cph", "fnd")))
@@ -10,7 +10,7 @@ License: MIT + file LICENSE
 URL: https://github.com/qfes/tidyassert
 BugReports: https://github.com/qfes/tidyassert/issues
 Depends:
-    R (>= 4.1.0)
+    R (>= 3.3.0)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
